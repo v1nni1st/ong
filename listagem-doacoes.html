@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Doações Recebidas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+
+        .summary {
+            background-color: #e9f5e9;
+            border: 1px solid #4CAF50;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        #donationChart {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+        }
+
+        .importance, .about-ong {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9f5e9;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Listagem de Doações Recebidas</h1>
+    </header>
+
+    <main>
+        <h2>Abaixo estão listadas as doações recebidas:</h2>
+
+        <div class="summary">
+            <strong>Total de Doações:</strong> 20 <br>
+            <strong>Quantidade Total:</strong> 408 unidades <br>
+            <strong>Última Doação:</strong> 31/10/2024 - Rodrigo Cunha (Livros)
+        </div>
+
+        <div class="importance">
+            <h3>Importância das Doações</h3>
+            <p>As doações são fundamentais para o nosso trabalho. Elas nos permitem oferecer suporte e assistência a pessoas que mais precisam. Cada contribuição faz uma grande diferença na vida de alguém. Juntos, podemos construir um futuro melhor.</p>
+        </div>
+
+        <div class="about-ong">
+            <h3>Sobre a ONG</h3>
+            <p>Nossa ONG foi fundada em 2010 e tem como objetivo promover o bem-estar social, ajudando comunidades em situação de vulnerabilidade. Com a ajuda de doadores e voluntários, realizamos diversas ações e campanhas ao longo do ano, como distribuição de alimentos, roupas, brinquedos e produtos de higiene.</p>
+        </div>
+
+        <canvas id="donationChart"></canvas>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Nome do Doador</th>
+                    <th>Tipo de Doação</th>
+                    <th>Quantidade</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>15/10/2024</td>
+                    <td>João Silva</td>
+                    <td>Alimentos</td>
+                    <td>10 kg</td>
+                    <td>Arroz, feijão e macarrão.</td>
+                </tr>
+                <tr>
+                    <td>16/10/2024</td>
+                    <td>Maria Souza</td>
+                    <td>Roupas</td>
+                    <td>15 unidades</td>
+                    <td>Roupas infantis e adultas.</td>
+                </tr>
+                <tr>
+                    <td>17/10/2024</td>
+                    <td>Carlos Almeida</td>
+                    <td>Brinquedos</td>
+                    <td>20 unidades</td>
+                    <td>Brinquedos educativos e recreativos.</td>
+                </tr>
+                <tr>
+                    <td>18/10/2024</td>
+                    <td>Ana Costa</td>
+                    <td>Alimentos</td>
+                    <td>5 kg</td>
+                    <td>Frutas e verduras.</td>
+                </tr>
+                <tr>
+                    <td>19/10/2024</td>
+                    <td>Rafael Santos</td>
+                    <td>Livros</td>
+                    <td>30 unidades</td>
+                    <td>Livros infantis e de ficção.</td>
+                </tr>
+                <tr>
+                    <td>20/10/2024</td>
+                    <td>Bianca Ferreira</td>
+                    <td>Roupas</td>
+                    <td>12 unidades</td>
+                    <td>Roupas para inverno.</td>
+                </tr>
+                <tr>
+                    <td>21/10/2024</td>
+                    <td>Lucas Martins</td>
+                    <td>Alimentos</td>
+                    <td>8 kg</td>
+                    <td>Grãos e enlatados.</td>
+                </tr>
+                <tr>
+                    <td>22/10/2024</td>
+                    <td>Juliana Mendes</td>
+                    <td>Produtos de Higiene</td>
+                    <td>25 unidades</td>
+                    <td>Sabonetes, shampoos e cremes.</td>
+                </tr>
+                <tr>
+                    <td>23/10/2024</td>
+                    <td>Eduardo Lima</td>
+                    <td>Alimentos</td>
+                    <td>15 kg</td>
+                    <td>Alimentos não perecíveis.</td>
+                </tr>
+                <tr>
+                    <td>24/10/2024</td>
+                    <td>Camila Ramos</td>
+                    <td>Roupas</td>
+                    <td>10 unidades</td>
+                    <td>Vestidos e camisetas.</td>
+                </tr>
+                <tr>
+                    <td>25/10/2024</td>
+                    <td>Felipe Rocha</td>
+                    <td>Brinquedos</td>
+                    <td>50 unidades</td>
+                    <td>Brinquedos variados.</td>
+                </tr>
+                <tr>
+                    <td>26/10/2024</td>
+                    <td>Paula Azevedo</td>
+                    <td>Medicamentos</td>
+                    <td>30 unidades</td>
+                    <td>Medicamentos básicos.</td>
+                </tr>
+                <tr>
+                    <td>27/10/2024</td>
+                    <td>André Barbosa</td>
+                    <td>Alimentos</td>
+                    <td>20 kg</td>
+                    <td>Alimentos para cestas básicas.</td>
+                </tr>
+                <tr>
+                    <td>28/10/2024</td>
+                    <td>Sofia Torres</td>
+                    <td>Produtos de Higiene</td>
+                    <td>40 unidades</td>
+                    <td>Produtos de limpeza e higiene pessoal.</td>
+                </tr>
+                <tr>
+                    <td>29/10/2024</td>
+                    <td>Gabriel Vieira</td>
+                    <td>Roupas</td>
+                    <td>8 unidades</td>
+                    <td>Roupas de verão.</td>
+                </tr>
+                <tr>
+                    <td>30/10/2024</td>
+                    <td>Laura Nunes</td>
+                    <td>Alimentos</td>
+                    <td>12 kg</td>
+                    <td>Alimentos para cestas básicas.</td>
+                </tr>
+                <tr>
+                    <td>31/10/2024</td>
+                    <td>Rodrigo Cunha</td>
+                    <td>Livros</td>
+                    <td>20 unidades</td>
+                    <td>Livros didáticos e de literatura.</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>ONG © 2024 - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dados aleatórios para o gráfico de doações em 2024
+        const donationData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Doações Recebidas (em unidades)',
+                data: [50, 75, 100, 85, 90, 120, 80, 60, 150, 130, 110, 140],
+                backgroundColor: 'rgba(76, 175, 80, 0.6)',
+                borderColor: 'rgba(76, 175, 80, 1)',
+                borderWidth: 2,
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: donationData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Quantidade de Doações (unidades)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Meses'
+                        }
+                    }
+                }
+            },
+        };
+
+        const donationChart = new Chart(
+            document.getElementById('donationChart'),
+            config
+        );
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial da ONG</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: #fff;
+        }
+
+        .nav-button {
+            margin: 0 15px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #45a049;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .impact-numbers {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .impact-box {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            width: 30%;
+        }
+
+        .donate-button {
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .donate-button:hover {
+            background-color: #e53935;
+        }
+
+        .testimonial-section,
+        .impact-stories,
+        .events,
+        .gallery,
+        .faq,
+        .partnerships {
+            margin: 20px 0;
+        }
+
+        .faq-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin: 0 5px;
+        }
+
+        .event-item {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .story-item {
+            margin: 10px 0;
+        }
+
+        .gallery img {
+            margin: 5px;
+            border-radius: 5px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .gallery div {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Estilo para o gráfico */
+        #donationChart {
+            max-width: 600px;
+            /* largura máxima do gráfico */
+            margin: auto;
+            /* centraliza o gráfico */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ONG - Bem-vindo à Nossa Plataforma</h1>
+    </header>
+
+    <nav>
+        <button class="nav-button" onclick="window.location.href='cadastro-voluntario.html'">Cadastro de
+            Voluntários</button>
+        <button class="nav-button" onclick="window.location.href='cadastro-beneficiario.html'">Cadastro de
+            Beneficiários</button>
+        <button class="nav-button" onclick="window.location.href='listagem-doacoes.html'">Listagem de Doações
+            Recebidas</button>
+    </nav>
+
+    <main>
+        <h2>Faça a diferença com a sua participação!</h2>
+        <p>Selecione uma das opções acima para começar a contribuir com nossa causa, seja como voluntário, beneficiário
+            ou doador.</p>
+
+        <section>
+            <h2>Sobre Nós</h2>
+            <p>Nossa ONG é dedicada a ajudar comunidades carentes, oferecendo suporte através de doações, voluntariado e
+                ações comunitárias. Acreditamos que juntos podemos transformar vidas e criar um futuro melhor para
+                todos.</p>
+        </section>
+
+        <section class="impact-numbers">
+            <div class="impact-box">
+                <h3>1,500+</h3>
+                <p>Voluntários Cadastrados</p>
+            </div>
+            <div class="impact-box">
+                <h3>3,200+</h3>
+                <p>Beneficiários Atendidos</p>
+            </div>
+            <div class="impact-box">
+                <h3>7,500 kg</h3>
+                <p>Alimentos Doados</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Gráfico de Doações de 2024</h2>
+            <canvas id="donationChart" height="300"></canvas> <!-- Definindo altura do gráfico -->
+            <p>Total de Doações: <strong>150</strong></p>
+            <p>Agradecemos a todos que contribuíram até agora! Sua generosidade faz toda a diferença.</p>
+        </section>
+
+        <section class="donation-goal">
+            <h2>Meta de Doações</h2>
+            <p>Meta Anual: <strong>R$ 100,000</strong></p>
+            <p>Já arrecadado: <strong>R$ 45,000</strong> (45% da meta)</p>
+            <p>Ajude-nos a alcançar nossa meta e impactar mais vidas!</p>
+        </section>
+
+        <section class="testimonial-section">
+            <h2>Depoimentos de Doadores</h2>
+            <div class="donor-testimonial">
+                <p><em>"Acredito que cada pequena ajuda conta. Fico feliz em fazer parte dessa causa!"</em></p>
+                <p>- João Silva</p>
+            </div>
+            <div class="donor-testimonial">
+                <p><em>"A ONG transformou minha visão sobre o impacto das doações. É gratificante ver os
+                        resultados!"</em></p>
+                <p>- Maria Oliveira</p>
+            </div>
+        </section>
+
+        <section class="impact-stories">
+            <h2>Histórias de Impacto</h2>
+            <div class="story-item">
+                <h4>História de Ana</h4>
+                <p>Com a ajuda das doações, Ana, uma mãe solteira, conseguiu comprar alimentos e roupas para seus
+                    filhos.</p>
+            </div>
+            <div class="story-item">
+                <h4>História de Lucas</h4>
+                <p>Graças às doações, Lucas pode participar de atividades educativas que mudaram sua vida.</p>
+            </div>
+        </section>
+
+        <section class="events">
+            <h2>Eventos Futuros</h2>
+            <div class="event-item">
+                <strong>Grande Feira de Doações</strong><br>
+                <em>Data:</em> 15 de novembro de 2024<br>
+                <em>Local:</em> Praça Central, Cidade<br>
+                <p>Participe da nossa feira, onde você pode doar e ajudar a arrecadar fundos!</p>
+                <button onclick="window.location.href='inscricao-evento.html'">Inscreva-se</button>
+            </div>
+            <div class="event-item">
+                <strong>Corrida pela Solidariedade</strong><br>
+                <em>Data:</em> 5 de dezembro de 2024<br>
+                <em>Local:</em> Parque da Cidade<br>
+                <p>Junte-se a nós em uma corrida para arrecadar fundos para as nossas ações!</p>
+                <button onclick="window.location.href='inscricao-evento.html'">Inscreva-se</button>
+            </div>
+        </section>
+
+        <section class="gallery">
+
+            <div>
+                <img src="12.png" alt="doação">
+
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Ajude-nos com sua doação!</h2>
+            <p>Seu apoio financeiro pode fazer uma grande diferença. Clique no botão abaixo para se cadastrar como
+                voluntário ou doador.</p>
+            <button class="donate-button" onclick="window.location.href='doacao.html'">Fazer Doação</button>
+        </section>
+
+        <section class="faq">
+            <h2>Dúvidas Frequentes</h2>
+            <div class="faq-item">
+                <strong>Como posso fazer uma doação?</strong>
+                <p>Basta clicar no botão "Fazer Doação" e preencher o formulário.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Como sei que minha doação está sendo utilizada?</strong>
+                <p>Fornecemos relatórios trimestrais sobre como as doações estão sendo usadas em nossas ações.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Posso me tornar um voluntário?</strong>
+                <p>Sim! Temos várias oportunidades para voluntariado. Clique no botão acima para se inscrever.</p>
+            </div>
+        </section>
+
+        <section class="partnerships">
+            <h2>Nossos Parceiros</h2>
+            <p>Agradecemos o apoio das seguintes empresas e instituições:</p>
+            <ul>
+                <li>Universidade Nove De Julho</li>
+                <li>UNIMED</li>
+                <li>FARM+</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Nos Siga nas Redes Sociais</h2>
+            <p>Fique por dentro das nossas ações e eventos!</p>
+            <div class="social-icons">
+                <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ONG. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Dados aleatórios para o gráfico de doações
+        const ctx = document.getElementById('donationChart').getContext('2d');
+        const donationChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Doações Recebidas',
+                    data: [10, 15, 20, 25, 30, 40, 35, 50, 45, 60, 70, 80], // Dados de doações aleatórios
+                    backgroundColor: 'rgba(76, 175, 80, 0.6)',
+                    borderColor: 'rgba(76, 175, 80, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Número de Doações'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Meses'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

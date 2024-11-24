@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Voluntários - ONG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .nav-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #45a049;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .info {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .info h2 {
+            color: #4CAF50;
+        }
+        .footer-info {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+        .donation-options {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .donation-options label {
+            margin-left: 10px;
+        }
+        .donation-checkbox {
+            margin-bottom: 10px;
+        }
+        .testimonial {
+            background-color: #e6ffe6;
+            padding: 10px;
+            border-left: 5px solid #4CAF50;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Cadastro de Voluntários</h1>
+    </header>
+
+    <nav>
+        <button class="nav-button" onclick="window.location.href='index.html'">Início</button>
+        <button class="nav-button" onclick="window.location.href='cadastro-beneficiario.html'">Cadastro de Beneficiários</button>
+        <button class="nav-button" onclick="window.location.href='listagem-doacoes.html'">Listagem de Doações Recebidas</button>
+    </nav>
+
+    <main>
+        <div class="form-container">
+            <h2>Formulário de Inscrição</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+                <div class="form-group">
+                    <label for="experiencia">Experiência Anterior (se houver)</label>
+                    <textarea id="experiencia" name="experiencia" rows="4"></textarea>
+                </div>
+
+                <div class="donation-options">
+                    <h2>Opções de Doação</h2>
+                    <p>Selecione os itens que você gostaria de doar:</p>
+                    <div class="donation-checkbox">
+                        <input type="checkbox" id="alimentos" name="doacao" value="Alimentos">
+                        <label for="alimentos">Alimentos não perecíveis</label>
+                    </div>
+                    <div class="donation-checkbox">
+                        <input type="checkbox" id="roupas" name="doacao" value="Roupas">
+                        <label for="roupas">Roupas em bom estado</label>
+                    </div>
+                    <div class="donation-checkbox">
+                        <input type="checkbox" id="produtos-higiene" name="doacao" value="Produtos de Higiene">
+                        <label for="produtos-higiene">Produtos de higiene pessoal</label>
+                    </div>
+                    <div class="donation-checkbox">
+                        <input type="checkbox" id="brinquedos" name="doacao" value="Brinquedos">
+                        <label for="brinquedos">Brinquedos</label>
+                    </div>
+                    <div class="donation-checkbox">
+                        <input type="checkbox" id="materiais-escolares" name="doacao" value="Materiais Escolares">
+                        <label for="materiais-escolares">Materiais escolares</label>
+                    </div>
+                    <div class="donation-checkbox">
+                        <input type="checkbox" id="equipamentos" name="doacao" value="Equipamentos">
+                        <label for="equipamentos">Equipamentos (ex: computadores, impressoras)</label>
+                    </div>
+                    <button type="button" onclick="confirmarDoacao()">Confirmar Opções de Doação</button>
+                </div>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="info">
+            <h2>História da Nossa ONG</h2>
+            <p>A ONG foi fundada em 2010 com o objetivo de ajudar comunidades carentes. Desde então, temos trabalhado em várias iniciativas, incluindo a distribuição de alimentos, roupas e educação para crianças em situação de vulnerabilidade. Nossa missão é promover a dignidade e o bem-estar social, e a visão é um mundo onde todos tenham acesso aos recursos básicos.</p>
+        </div>
+
+        <div class="info">
+            <h2>Como Funciona o Programa de Voluntariado</h2>
+            <p>Nosso programa de voluntariado é estruturado em diferentes áreas de atuação. Os voluntários podem escolher a área que mais se identifica, desde ações sociais até atividades de arrecadação. Os interessados passam por um processo de inscrição, entrevistas e treinamento para garantir que estejam prontos para contribuir.</p>
+        </div>
+
+        <div class="info">
+            <h2>Tipos de Atividades</h2>
+            <p>Os voluntários podem se envolver em diversas atividades, tais como:</p>
+            <ul>
+                <li>Organização de eventos beneficentes.</li>
+                <li>Atendimento a beneficiários em nossas instalações.</li>
+                <li>Distribuição de alimentos e roupas em comunidades carentes.</li>
+                <li>Oficinas de capacitação e educação.</li>
+                <li>Campanhas de conscientização e arrecadação.</li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <h2>Como Entrar em Contato</h2>
+            <p>Se você tiver alguma dúvida ou precisar de mais informações, entre em contato conosco:</p>
+            <p><strong>Email:</strong> contato@ong.org.br</p>
+            <p><strong>Telefone:</strong> (11) 1234-5678</p>
+            <p><strong>Endereço:</strong> Rua das Flores, 123 - Centro, São Paulo - SP</p>
+        </div>
+
+        <div class="info">
+            <h2>Links Úteis</h2>
+            <p>Acesse algumas páginas importantes:</p>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="cadastro-beneficiario.html">Cadastro de Beneficiários</a></li>
+                <li><a href="listagem-doacoes.html">Listagem de Doações Recebidas</a></li>
+                <li><a href="https://www.facebook.com/nossaong">Facebook da ONG</a></li>
+                <li><a href="https://www.instagram.com/nossaong">Instagram da ONG</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-info">
+            <h2>Depoimentos de Voluntários</h2>
+            <div class="testimonial">
+                <strong>Maria Silva</strong><br>
+                "Ser voluntária na ONG me trouxe uma nova perspectiva de vida. Agradeço todos os dias por fazer parte dessa equipe incrível!"
+            </div>
+            <div class="testimonial">
+                <strong>João Pereira</strong><br>
+                "A experiência de ajudar o próximo e ver a felicidade nos rostos das pessoas que ajudamos é indescritível. Recomendo a todos!"
+            </div>
+            <div class="testimonial">
+                <strong>Ana Costa</strong><br>
+                "Voluntariar é uma das melhores decisões que tomei. Sinto que estou fazendo a diferença na vida de muitos."
+            </div>
+            <div class="testimonial">
+                <strong>Lucas Santos</strong><br>
+                "A ONG me deu a oportunidade de crescer pessoalmente e profissionalmente. Sou grato por isso."
+            </div>
+            <div class="testimonial">
+                <strong>Fernanda Almeida</strong><br>
+                "As amizades que fiz aqui são para a vida toda. Juntos, fazemos um trabalho lindo!"
+            </div>
+            <div class="testimonial">
+                <strong>Ricardo Lima</strong><br>
+                "Cada atividade que realizamos traz um sorriso e isso não tem preço. Estou sempre disposto a ajudar!"
+            </div>
+            <div class="testimonial">
+                <strong>Patrícia Gomes</strong><br>
+                "O trabalho em equipe é incrível, e a sensação de ajudar é indescritível. Estou feliz em ser parte desta ONG."
+            </div>
+            <div class="testimonial">
+                <strong>Gabriel Rocha</strong><br>
+                "Minha experiência como voluntário foi transformadora. Aprendi muito e conheci pessoas maravilhosas!"
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ONG. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function confirmarDoacao() {
+            const checkboxes = document.querySelectorAll('input[name="doacao"]:checked');
+            let itemsSelecionados = [];
+            checkboxes.forEach((checkbox) => {
+                itemsSelecionados.push(checkbox.value);
+            });
+            if (itemsSelecionados.length > 0) {
+                alert("Você selecionou: " + itemsSelecionados.join(", "));
+            } else {
+                alert("Nenhuma opção de doação selecionada.");
+            }
+        }
+    </script>
+
+</body>
+</html>
